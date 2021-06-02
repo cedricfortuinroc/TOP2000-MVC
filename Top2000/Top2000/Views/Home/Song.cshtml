@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Ploatn";
+    string[] tableHeaders = new string[] {"Titel", "Jaar", "Naam", "Positie", "Top2000 Jaar", "Top2000 Titel"};
+}
+
+<h1>Dikk'n @ViewData["Title"]</h1>
+
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            @{
+                foreach (var head in tableHeaders)
+                {
+                    <th>
+                        @head
+                    </th>
+                }
+            }
+        </tr>
+        </thead>
+        @{
+            if (Model != null)
+            {
+                foreach (var song in Model)
+                {
+                    <tr>
+                        <td>@song.SongTitle</td>
+                        <td>@song.SongYear</td>
+                        <td>@song.ArtistName</td>
+                        <td>@song.Position</td>
+                        <td>@song.ListYear</td>
+                        <td>@song.ListTitle</td>
+                    </tr>
+                }
+            }
+        }
+    </table>
+</div>
